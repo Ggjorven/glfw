@@ -1,7 +1,6 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"
-	staticruntime "on"
 	warnings "off"
 
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
@@ -28,6 +27,7 @@ project "GLFW"
 	}
 
 	filter "system:windows"
+		staticruntime "on"
 		systemversion "latest"
 
 		files
@@ -51,6 +51,7 @@ project "GLFW"
 		}
 
 	filter "system:linux"
+		staticruntime "on"
         systemversion "latest"
 		pic "On"
 
@@ -103,6 +104,8 @@ project "GLFW"
         end
 
 	filter "system:macosx"
+		staticruntime "on"
+		systemversion "14.5"
 		pic "On"
 
 		files
