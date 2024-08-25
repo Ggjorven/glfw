@@ -1,7 +1,9 @@
+MacOSVersion = MacOSVersion or "14.5"
+
 project "GLFW"
 	kind "StaticLib"
 	language "C"
-	warnings "off"
+	warnings "Off"
 
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
@@ -89,9 +91,7 @@ project "GLFW"
                 "src/x11_window.c",
                 "src/glx_context.c",
             }
-        else
-            print("[GLFW] [WARN]: Failed to query if display is X11 or Wayland. Defaulting to X11. If not on linux, ignore this warning.")
-
+        else -- Default to X11
             defines { "_GLFW_X11" }
 
             files
@@ -105,7 +105,7 @@ project "GLFW"
 
 	filter "system:macosx"
 		staticruntime "on"
-		systemversion "14.5"
+		systemversion "%{MacOSVersion}"
 		pic "On"
 
 		files

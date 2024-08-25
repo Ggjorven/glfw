@@ -90,6 +90,12 @@ tests/triangle-vulkan
 tests/window
 tests/windows
 
-# Hazel-specific
+# Other
 bin
 bin-int
+
+# XCode ignores
+*.xcworkspace
+*.xcodeproj
+**/*.xcworkspace
+**/*.xcodeproj
