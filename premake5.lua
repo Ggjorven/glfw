@@ -105,8 +105,13 @@ project "GLFW"
 
 	filter "system:macosx"
 		staticruntime "on"
-		systemversion "%{MacOSVersion}"
+		systemversion(MacOSVersion)
 		pic "On"
+
+		defines
+		{
+			"_GLFW_COCOA"
+		}
 
 		files
 		{
@@ -120,11 +125,6 @@ project "GLFW"
 			"src/posix_module.c",
 			"src/osmesa_context.c",
 			"src/egl_context.c"
-		}
-
-		defines
-		{
-			"_GLFW_COCOA"
 		}
 
 	filter "configurations:Debug"
